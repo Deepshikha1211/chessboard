@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chessboard Grid</title>
+</head>
+<body>
+    <script>
+        // Function to create a label and append it to the body
+        function print(data) {
+            var label = document.createElement('div');
+            label.innerHTML = data;
+            document.body.appendChild(label);
+        }
+
+        // Function to create a break element
+        function newLine() {
+            return '<br>';
+        }
+
+        // Declare a variable for the board size
+        var board_size = 8;
+
+        // Function to generate the chessboard
+        function generateChessboard(size) {
+            var board = '';
+            for (var row = 0; row < size; row++) {
+                for (var col = 0; col < size; col++) {
+                    if ((row + col) % 2 === 0) {
+                        board += ' * ';
+                    } else {
+                        board += ' # ';
+                    }
+                }
+                board += newLine(); // Add a line break after each row
+            }
+            return board;
+        }
+
+        // Generate and print the chessboard
+        var chessboard = generateChessboard(board_size);
+        print(chessboard);
+    </script>
+</body>
+</html>
